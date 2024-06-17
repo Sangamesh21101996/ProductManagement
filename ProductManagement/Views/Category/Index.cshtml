@@ -1,0 +1,42 @@
+﻿@using ProductManagement.Models.Category
+@model List<CategoryEntity>
+
+<div class="container">
+    <div class="row pt-4 pb-4">
+        <div class="col-6">
+            <h2 class="text-primary">Categories</h2>
+            
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="" asp-action="" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Add Category
+            </a>
+
+        </div>
+
+    </div>
+
+ <table class="table table-bordered table-striped table-hover">
+    <thead>
+            <tr class="table-primary">
+        <th>
+            Category
+        </th>
+        <th>Display Order</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach(var ct in Model)
+        {
+            <tr>
+                <td>@ct.CategoryName</td>
+                <td>@ct.DisplayOrder</td>
+            </tr>
+
+
+        }
+
+    </tbody>
+
+</table>
+</div>
