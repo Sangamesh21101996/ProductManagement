@@ -7,12 +7,6 @@
             <h2 class="text-primary">Categories</h2>
             
         </div>
-        <div class="col-6 text-end">
-            <a asp-controller="" asp-action="" class="btn btn-primary">
-                <i class="bi bi-plus-circle"></i> Add Category
-            </a>
-
-        </div>
 
     </div>
 
@@ -23,6 +17,7 @@
             Category
         </th>
         <th>Display Order</th>
+        <th>Options</th>
     </tr>
     </thead>
     <tbody>
@@ -31,6 +26,17 @@
             <tr>
                 <td>@ct.CategoryName</td>
                 <td>@ct.DisplayOrder</td>
+                <td>
+                    <div class=" w-75 btn-group" role="group">
+                        @*asp-rounter-<field name which is given in controller method > This will gives us the particular field name when user clicks on button *@
+                            <a asp-controller="Category" asp-action="Edit" asp-route-ctgId="@ct.CategoryId" class="btn btn-outline-info mx-2 ">
+                                <i class="bi bi-pencil-square"></i> Edit
+                        </a>
+                            <a asp-controller="Category" asp-action="Delete" asp-route-ctgId="@ct.CategoryId" class="btn btn-outline-danger mx-2">
+                                <i class="bi bi-trash3-fill"></i> Delete
+                            </a>
+                    </div>
+                </td>
             </tr>
 
 
@@ -39,4 +45,15 @@
     </tbody>
 
 </table>
+
+<div class="row justify-content-end pb-3 pt-3">
+    <div class="col-6 text-end">
+        @*If we not provide the controller and action name then bydefault it will take name of controller from folder and actopn will be index all ways*@
+        <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Create Category
+        </a>
+
+    </div>
+ </div>
+
 </div>
